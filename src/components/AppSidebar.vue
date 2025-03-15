@@ -7,6 +7,10 @@ import { AppSidebarNav } from '@/components/AppSidebarNav.js'
 import { useSidebarStore } from '@/stores/sidebar.js'
 
 const sidebar = useSidebarStore()
+const styleLogo = {
+  width: '100%',
+  'object-fit': 'cover'
+}
 </script>
 
 <template>
@@ -20,8 +24,8 @@ const sidebar = useSidebarStore()
   >
     <CSidebarHeader class="border-bottom">
       <RouterLink custom to="/" v-slot="{ href, navigate }">
-        <CSidebarBrand v-bind="$attrs" as="a" :href="href" @click="navigate">
-          <CIcon custom-class-name="sidebar-brand-full" :icon="logo" :height="32" />
+        <CSidebarBrand v-bind="$attrs" as="a" :href="href" style="display: block" @click="navigate">
+          <img class="sidebar-brand-full" :style=styleLogo :src="logo" :alt="logo" :height="32" />
           <CIcon custom-class-name="sidebar-brand-narrow" :icon="sygnet" :height="32" />
         </CSidebarBrand>
       </RouterLink>
